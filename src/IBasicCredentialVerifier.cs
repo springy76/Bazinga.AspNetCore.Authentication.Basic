@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Bazinga.AspNetCore.Authentication.Basic
 {
@@ -12,7 +14,8 @@ namespace Bazinga.AspNetCore.Authentication.Basic
         /// </summary>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
+        /// <param name="claims">Opportunity to store additional claims.</param>
         /// <returns></returns>
-        Task<bool> Authenticate(string username, string password);
+        Task<bool> Authenticate(string username, string password, ICollection<Claim> claims);
     }
 }

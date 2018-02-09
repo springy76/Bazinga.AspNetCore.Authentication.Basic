@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -66,7 +67,8 @@ namespace Bazinga.AspNetCore.Authentication.Basic
 
                 var userpass = DecodeUserIdAndPassword(encodedAuth);
 
-                if (!await _authenticationVerifier.Authenticate(userpass.userid, userpass.password))
+                var claims = new List<Claim> { new Claim(ClaimTypes.Name, userpass.userid, ClaimValueTypes.String, ClaimsIssuer) };
+                if (!await _authenticationVerifier.Authenticate(userpass.userid, userpass.password, claims))
                 {
                     Logger.LogInformation("Failed to validate {userid}.", userpass.userid);
                     return AuthenticateResult.Fail("Failed to validate userid/password.");
@@ -74,7 +76,6 @@ namespace Bazinga.AspNetCore.Authentication.Basic
 
                 Logger.LogInformation("Successfully validated credentials for {userid}.", userpass.userid);
 
-                var claims = new[] { new Claim(ClaimTypes.Name, userpass.userid, ClaimValueTypes.String, ClaimsIssuer) };
                 var principal = new ClaimsPrincipal(new ClaimsIdentity(claims, Scheme.Name));
 
                 var successContext = new AuthenticationSucceededContext(userpass.userid, Context, Scheme, Options)

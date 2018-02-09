@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Bazinga.AspNetCore.Authentication.Basic
@@ -12,7 +14,7 @@ namespace Bazinga.AspNetCore.Authentication.Basic
             _func = func ?? throw new ArgumentNullException(nameof(func));
         }
 
-        public Task<bool> Authenticate(string username, string password)
+        public Task<bool> Authenticate(string username, string password, ICollection<Claim> claims)
         {
             return _func((username, password));
         }
