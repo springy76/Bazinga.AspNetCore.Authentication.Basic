@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 
 namespace Bazinga.AspNetCore.Authentication.Basic
 {
+    using Microsoft.AspNetCore.Http;
+
     /// <summary>
     /// Basic Credentials Verifier
     /// </summary>
@@ -12,10 +14,11 @@ namespace Bazinga.AspNetCore.Authentication.Basic
         /// <summary>
         /// Verifies the credentials received via Basic Authentication
         /// </summary>
+        /// <param name="context">The HttpContext for this request.</param>
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <param name="claims">Opportunity to store additional claims.</param>
         /// <returns></returns>
-        Task<bool> Authenticate(string username, string password, ICollection<Claim> claims);
+        Task<bool> Authenticate(HttpContext context, string username, string password, ICollection<Claim> claims);
     }
 }

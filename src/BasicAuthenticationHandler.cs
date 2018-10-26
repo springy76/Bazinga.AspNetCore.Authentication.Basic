@@ -68,7 +68,7 @@ namespace Bazinga.AspNetCore.Authentication.Basic
                 var userpass = DecodeUserIdAndPassword(encodedAuth);
 
                 var claims = new List<Claim> { new Claim(ClaimTypes.Name, userpass.userid, ClaimValueTypes.String, ClaimsIssuer) };
-                if (!await _authenticationVerifier.Authenticate(userpass.userid, userpass.password, claims))
+                if (!await _authenticationVerifier.Authenticate(Context, userpass.userid, userpass.password, claims))
                 {
                     Logger.LogInformation("Failed to validate {userid}.", userpass.userid);
                     return AuthenticateResult.Fail("Failed to validate userid/password.");
