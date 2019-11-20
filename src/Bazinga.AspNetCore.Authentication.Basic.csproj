@@ -3,9 +3,10 @@
   <PropertyGroup>
     <PackageId>Bazinga.AspNetCore.Authentication.Basic</PackageId>
     <Authors>Bruno Garcia</Authors>
-    <Description>Basic Authentication Scheme for ASP.NET Core 2.0</Description>
+    <Description>Basic Authentication Scheme for ASP.NET Core 3.0</Description>
     <PackageVersion>0.0.0</PackageVersion>
-    <TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>
+    <!--<TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>-->
+    <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageTags>basic authentication;aspnetcore;authentication;security</PackageTags>
@@ -17,14 +18,8 @@
     <DebugType>full</DebugType>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+  <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup Condition=" '$(TargetFramework)' != 'netcoreapp3.0' ">
-    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.1.2" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="3.0.0" />
   </ItemGroup>
 
 </Project>
