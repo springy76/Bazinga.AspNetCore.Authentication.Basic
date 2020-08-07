@@ -11,11 +11,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageTags>basic authentication;aspnetcore;authentication;security</PackageTags>
     <PackageProjectUrl>https://github.com/bruno-garcia/Bazinga.AspNetCore.Authentication.Basic</PackageProjectUrl>
-  </PropertyGroup>
-
-  <!-- https://github.com/OpenCover/opencover/issues/601 -->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Coverage|AnyCPU'">
-    <DebugType>full</DebugType>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
   <ItemGroup>
