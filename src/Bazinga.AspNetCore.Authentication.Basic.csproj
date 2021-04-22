@@ -3,10 +3,9 @@
   <PropertyGroup>
     <PackageId>Bazinga.AspNetCore.Authentication.Basic</PackageId>
     <Authors>Bruno Garcia</Authors>
-    <Description>Basic Authentication Scheme for ASP.NET Core 3.0</Description>
+    <Description>Basic Authentication Scheme for ASP.NET Core 3.1</Description>
     <PackageVersion>0.0.0</PackageVersion>
-    <!--<TargetFrameworks>netstandard2.0;netcoreapp3.0</TargetFrameworks>-->
-    <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageTags>basic authentication;aspnetcore;authentication;security</PackageTags>
