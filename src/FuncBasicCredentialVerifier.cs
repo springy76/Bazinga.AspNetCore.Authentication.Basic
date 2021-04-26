@@ -16,7 +16,7 @@ namespace Bazinga.AspNetCore.Authentication.Basic
             _func = func ?? throw new ArgumentNullException(nameof(func));
         }
 
-        public Task<bool> Authenticate(HttpContext context, string username, string password, ICollection<Claim> claims)
+        public Task<bool> AuthenticateAsync(HttpContext context, string username, string password, ICollection<Claim> claims)
         {
             return _func((username, password));
         }

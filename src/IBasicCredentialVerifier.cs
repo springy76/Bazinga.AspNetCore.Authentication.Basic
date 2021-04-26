@@ -19,6 +19,6 @@ namespace Bazinga.AspNetCore.Authentication.Basic
         /// <param name="password">The password.</param>
         /// <param name="claims">Opportunity to store additional claims.</param>
         /// <returns></returns>
-        Task<bool> Authenticate(HttpContext context, string username, string password, ICollection<Claim> claims);
+        Task<bool> AuthenticateAsync(HttpContext context, string username, string password, ICollection<Claim> claims);
     }
 }
